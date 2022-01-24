@@ -2380,19 +2380,19 @@ MonoBehaviour:
   - id: 0
     unlock: 1
     price: 0
-    obj: {fileID: 0}
+    obj: {fileID: 1605419671}
   - id: 1
     unlock: 0
     price: 100
-    obj: {fileID: 0}
+    obj: {fileID: 1030058208}
   - id: 2
     unlock: 0
     price: 200
-    obj: {fileID: 0}
+    obj: {fileID: 112513175}
   btnList:
-  - {fileID: 1996308148}
-  - {fileID: 1043938574}
-  - {fileID: 693937767}
+  - {fileID: 1829847076}
+  - {fileID: 520500113}
+  - {fileID: 411049418}
   KEY: CELANA
   buy:
   - {fileID: 1065553533}
@@ -5882,19 +5882,19 @@ MonoBehaviour:
   - id: 0
     unlock: 1
     price: 0
-    obj: {fileID: 0}
+    obj: {fileID: 233068216}
   - id: 1
     unlock: 0
     price: 100
-    obj: {fileID: 0}
+    obj: {fileID: 1687201991}
   - id: 2
     unlock: 0
     price: 200
-    obj: {fileID: 0}
+    obj: {fileID: 245778698}
   btnList:
-  - {fileID: 656730642}
-  - {fileID: 91143152}
-  - {fileID: 1817349439}
+  - {fileID: 1443609134}
+  - {fileID: 1331113955}
+  - {fileID: 1693978826}
   KEY: PADS
   buy:
   - {fileID: 1065553533}
@@ -20434,19 +20434,19 @@ MonoBehaviour:
   - id: 0
     unlock: 1
     price: 0
-    obj: {fileID: 0}
+    obj: {fileID: 1115952250}
   - id: 1
     unlock: 0
     price: 100
-    obj: {fileID: 0}
+    obj: {fileID: 1973249589}
   - id: 2
     unlock: 0
     price: 200
-    obj: {fileID: 0}
+    obj: {fileID: 102817343}
   btnList:
-  - {fileID: 656730642}
-  - {fileID: 91143152}
-  - {fileID: 1817349439}
+  - {fileID: 1334915521}
+  - {fileID: 2061349554}
+  - {fileID: 1421822465}
   KEY: SEPATU
   buy:
   - {fileID: 1065553533}
