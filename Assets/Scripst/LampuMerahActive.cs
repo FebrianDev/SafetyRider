@@ -29,7 +29,7 @@ public class LampuMerahActive : MonoBehaviour
     IEnumerator Yellow()
     {
         SetSprite(false, true,false);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         StartCoroutine("Green");
     }
 
