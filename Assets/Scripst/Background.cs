@@ -1,18 +1,24 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Background : MonoBehaviour
 {
-    private GameObject limit;
-    void Start()
+    [SerializeField] private GameObject[] bg;
+    private float posY = 40;
+
+    private void Start()
     {
-        limit = gameObject.transform.GetChild(0).gameObject;
+        StartCoroutine("CreateBg");
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator CreateBg()
     {
-        
+        while (true && !Data.isGameOver)
+        {
+            yield return new WaitForSeconds(1);
+            var go = Instantiate(bg[Random.Range(0, bg.Length)], new Vector3(0, posY, 0), Quaternion.identity);
+            go.transform.parent = gameObject.transform;
+            posY += 10;
+        }
     }
 }

@@ -7,6 +7,8 @@ public class LampuMerah : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && LampuMerahActive.redActive)
         {
+            Data.message = "Kamu menerobos! Lain kali tunggu hijau dulu";
+            
             // is GamevOver
             Data.isGameOver = true;
             Time.timeScale = 0f;

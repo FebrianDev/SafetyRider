@@ -1,0 +1,63 @@
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MainMenu : MonoBehaviour
+{
+    [SerializeField] private GameObject panelMainMenu, panelAlmanac, panelInfo, panelCustomize;
+    
+    [SerializeField] private GameObject tutorial, player, camera;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        ManagePanel(false, false, true,false);
+    }
+
+    public void Play()
+    {
+        ManagePanel(false,false,false,true);
+    }
+
+    public void Almanac()
+    {
+        ManagePanel(true, false, false, false);
+    }
+
+    public void Info()
+    {
+        ManagePanel(false, true, false,false);
+    }
+
+    public void BackMainMenu()
+    {
+        ManagePanel(false, false, true,false);
+    }
+    
+    public void LetsGo()
+    {
+        if (PlayerPrefs.GetString(Constant.TUTORIAL, "") != "")
+        {
+            DontDestroyOnLoad(player);
+            DontDestroyOnLoad(camera);
+            SceneManager.LoadScene("SampleScene");
+        }
+        else
+        {
+            tutorial.SetActive(true);
+            ManagePanel(false,false,false,false);
+        }
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    private void ManagePanel(bool almanac, bool info, bool mainmenu, bool customize)
+    {
+        panelAlmanac.SetActive(almanac);
+        panelInfo.SetActive(info);
+        panelMainMenu.SetActive(mainmenu);
+        panelCustomize.SetActive(customize);
+    }
+}

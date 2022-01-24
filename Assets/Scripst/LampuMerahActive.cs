@@ -23,15 +23,15 @@ public class LampuMerahActive : MonoBehaviour
     {
         redActive = true;
         SetSprite(true, false,false);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(8);
         StartCoroutine("Yellow");
     }
 
     IEnumerator Yellow()
     {
-        redActive = false;
+        redActive = true;
         SetSprite(false, true,false);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         StartCoroutine("Green");
     }
 
