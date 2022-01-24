@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -11,6 +12,14 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         ManagePanel(false, false, true,false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.C))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     public void Play()
@@ -43,6 +52,8 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
+            DontDestroyOnLoad(player);
+            DontDestroyOnLoad(camera);
             tutorial.SetActive(true);
             ManagePanel(false,false,false,false);
         }

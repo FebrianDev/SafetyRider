@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LampuMerahActive : MonoBehaviour
 {
     [SerializeField] private GameObject red, yellow, green;
 
-    public static bool redActive = true;
+    public static bool redActive;
 
     void Start()
     {
@@ -16,20 +15,19 @@ public class LampuMerahActive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(redActive);
+        Debug.Log("Lampu "+redActive);
     }
 
     IEnumerator Red()
     {
-        redActive = true;
         SetSprite(true, false,false);
-        yield return new WaitForSeconds(8);
+        redActive = true;
+        yield return new WaitForSeconds(4);
         StartCoroutine("Yellow");
     }
 
     IEnumerator Yellow()
     {
-        redActive = true;
         SetSprite(false, true,false);
         yield return new WaitForSeconds(3);
         StartCoroutine("Green");
@@ -38,9 +36,11 @@ public class LampuMerahActive : MonoBehaviour
     IEnumerator Green()
     {
         redActive = false;
+        yield return new WaitForSeconds(2);
         SetSprite(false, false,true);
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(4);
         redActive = false;
+        yield return new WaitForSeconds(2);
         StartCoroutine("Red");
     }
 

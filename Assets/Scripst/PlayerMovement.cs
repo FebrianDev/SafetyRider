@@ -13,7 +13,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject panelJoystick;
     [SerializeField] private RectTransform _rectTransform;
 
+    [SerializeField] private float percepatan;
+
     private bool isActive;
+
     private void Start()
     {
         isActive = false;
@@ -42,14 +45,33 @@ public class PlayerMovement : MonoBehaviour
 
         if (y > 0)
         {
+            percepatan += Time.deltaTime;
+
+            if (percepatan >= 1.2)
+            {
+                percepatan = 1.2f;
+            }
+
+            transform.position +=
+                (Vector3) new Vector2((x * Time.deltaTime), (y * speed * Time.deltaTime)) * percepatan;
+
+            var vec = (Vector3) new Vector2((x * Time.deltaTime), (y * speed * Time.deltaTime)) * percepatan;
+
             Data.speed = y * 100;
-            transform.position +=(Vector3) new Vector2((x * Time.deltaTime), (y * speed * Time.deltaTime));
+
+            Debug.Log(Data.speed);
         }
         else
         {
+            percepatan -= Time.deltaTime;
+
+            if (percepatan <= 0)
+            {
+                percepatan = 0;
+            }
+
             Data.speed = 0;
-            transform.position +=(Vector3) new Vector2((x * rem * Time.deltaTime), (y * rem * Time.deltaTime));
-            
+            transform.position += (Vector3) new Vector2((x * rem * Time.deltaTime), (y * rem * Time.deltaTime));
         }
 
         Data.score = transform.position.y;
@@ -57,11 +79,14 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckSpeed()
     {
-        if (Data.speed > 60 && LimitSpeed.limitSpeedActive)
+        if (LimitSpeed.limitSpeedActive)
         {
-            Data.isGameOver = true;
-            Time.timeScale = 0f;
-            Data.message = "Kamu terlalu cepat! perhatikan batas kecepatan";
+            if (Data.speed > 65)
+            {
+                Data.isGameOver = true;
+                Time.timeScale = 0f;
+                Data.message = "Kamu terlalu cepat! perhatikan batas kecepatan";
+            }
         }
     }
 
