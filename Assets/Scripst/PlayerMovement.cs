@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
@@ -12,21 +11,32 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private GameObject panelJoystick;
     [SerializeField] private RectTransform _rectTransform;
-
     [SerializeField] private float percepatan;
 
     private bool isActive;
 
+    [SerializeField] private AudioSource _audioSource, audioBrake;
+
+    private bool check;
     private void Start()
     {
         isActive = false;
+        check = false;
         panelJoystick.SetActive(false);
         rigid = GetComponent<Rigidbody2D>();
+
+        _audioSource.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "SampleScene" && !check)
+        {
+            _audioSource.enabled = true;
+            check = true;
+        }
+        
         if (Data.isGameOver)
         {
             _rectTransform.anchoredPosition = Vector2.zero;
@@ -42,6 +52,12 @@ public class PlayerMovement : MonoBehaviour
     {
         var y = _joystick.Vertical;
         var x = _joystick.Horizontal;
+
+        _audioSource.volume = y;
+        if (y <= 0.7f)
+        {
+            _audioSource.volume = 0.7f;
+        }
 
         if (y > 0)
         {
@@ -72,6 +88,16 @@ public class PlayerMovement : MonoBehaviour
 
             Data.speed = 0;
             transform.position += (Vector3) new Vector2((x * rem * Time.deltaTime), (y * rem * Time.deltaTime));
+        }
+
+        if (y < 0)
+        {
+            audioBrake.mute = false;
+            audioBrake.PlayOneShot(audioBrake.clip);
+        }
+        else
+        {
+            audioBrake.mute = true;
         }
 
         Data.score = transform.position.y;

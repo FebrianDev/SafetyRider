@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
 
         coin.text = $"{Data.coin.ToString()}";
         score.text = $"{scoreValue} Km";
-        speed.text = $"{(int) Data.speed} Km/h";
+        speed.text = $"{(int) Data.speed} \n Km/h";
 
         if (Data.isGameOver)
         {

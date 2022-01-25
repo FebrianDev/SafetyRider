@@ -20,11 +20,11 @@ public class Tutorial : MonoBehaviour
     IEnumerator StartTutorial()
     {
         anim[0].enabled = true;
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(4);
         anim[1].enabled = true;
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(4);
         anim[2].enabled = true;
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(4);
         PlayerPrefs.SetString(Constant.TUTORIAL, Constant.TUTORIAL);
         SceneManager.LoadScene("SampleScene");
     }

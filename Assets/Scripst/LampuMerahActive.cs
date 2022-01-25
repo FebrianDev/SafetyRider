@@ -5,7 +5,7 @@ public class LampuMerahActive : MonoBehaviour
 {
     [SerializeField] private GameObject red, yellow, green;
 
-    public static bool redActive;
+    private bool redActive;
 
     void Start()
     {
@@ -15,12 +15,12 @@ public class LampuMerahActive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Lampu "+redActive);
+        Debug.Log("Lampu " + redActive);
     }
 
     IEnumerator Red()
     {
-        SetSprite(true, false,false);
+        SetSprite(true, false, false);
         redActive = true;
         yield return new WaitForSeconds(4);
         StartCoroutine("Yellow");
@@ -28,7 +28,7 @@ public class LampuMerahActive : MonoBehaviour
 
     IEnumerator Yellow()
     {
-        SetSprite(false, true,false);
+        SetSprite(false, true, false);
         yield return new WaitForSeconds(1);
         StartCoroutine("Green");
     }
@@ -37,7 +37,7 @@ public class LampuMerahActive : MonoBehaviour
     {
         redActive = false;
         yield return new WaitForSeconds(2);
-        SetSprite(false, false,true);
+        SetSprite(false, false, true);
         yield return new WaitForSeconds(4);
         redActive = false;
         yield return new WaitForSeconds(2);
@@ -49,5 +49,17 @@ public class LampuMerahActive : MonoBehaviour
         red.SetActive(redAct);
         yellow.SetActive(yellowActive);
         green.SetActive(greenActive);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && redActive)
+        {
+            Data.message = "Kamu menerobos! Lain kali tunggu hijau dulu";
+
+            // is GamevOver
+            Data.isGameOver = true;
+            Time.timeScale = 0f;
+        }
     }
 }
