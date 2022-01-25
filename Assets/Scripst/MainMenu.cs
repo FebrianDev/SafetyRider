@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject panelMainMenu, panelAlmanac, panelInfo, panelCustomize;
     
-    [SerializeField] private GameObject tutorial, player, camera;
+    [SerializeField] private GameObject tutorial, player, camera, back;
 
     // Start is called before the first frame update
     void Start()
@@ -44,8 +44,10 @@ public class MainMenu : MonoBehaviour
     
     public void LetsGo()
     {
+        back.SetActive(false);
         if (PlayerPrefs.GetString(Constant.TUTORIAL, "") != "")
         {
+            
             DontDestroyOnLoad(player);
             DontDestroyOnLoad(camera);
             SceneManager.LoadScene("SampleScene");

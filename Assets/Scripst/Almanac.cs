@@ -9,13 +9,16 @@ public class Almanac : MonoBehaviour
 
     private void Start()
     {
-        temp = PlayerPrefs.GetInt("TEMP", 0);
-        for (var i = 0; i < 2; i++)
+        if (Navigation.active == 0)
+            temp = PlayerPrefs.GetInt("TEMP " + Navigation.active, 0);
+        else if (Navigation.active == 1)
+            temp = PlayerPrefs.GetInt("TEMP " + Navigation.active, 8);
+        for (var i = 0; i < _list.Count; i++)
         {
             _list[i].obj.SetActive(temp == i);
         }
-        
-        PlayerPrefs.SetInt(Constant.COIN, 100000);
+
+        //  PlayerPrefs.SetInt(Constant.COIN, 100000);
     }
 
     private void Update()
@@ -28,16 +31,19 @@ public class Almanac : MonoBehaviour
 
     public void SetBtn(int id)
     {
-        temp = PlayerPrefs.GetInt("TEMP", 0);
+        if (Navigation.active == 0)
+            temp = PlayerPrefs.GetInt("TEMP " + Navigation.active, 0);
+        else if (Navigation.active == 1)
+            temp = PlayerPrefs.GetInt("TEMP " + Navigation.active, 8);
         if (id != temp)
         {
-            for (var i = 0; i < 2; i++)
+            for (var i = 0; i < 21; i++)
             {
                 if (id == i)
                 {
                     Debug.Log("Oke");
                     _list[i].obj.SetActive(true);
-                    PlayerPrefs.SetInt("TEMP", id);
+                    PlayerPrefs.SetInt("TEMP" + Navigation.active, id);
                 }
                 else
                 {

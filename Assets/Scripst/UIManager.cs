@@ -96,11 +96,15 @@ public class UIManager : MonoBehaviour
     public void Pause()
     {
         panelPause.SetActive(true);
+        cam.SetActive(true);
+        img.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void Continue()
     {
+        img.SetActive(false);
+        cam.SetActive(false);
         panelPause.SetActive(false);
         Time.timeScale = 1f;
     }
