@@ -7,6 +7,7 @@ public class Customize : MonoBehaviour
 {
     [SerializeField] private List<Items> _list = new List<Items>();
     [SerializeField] private List<Image> btnList = new List<Image>();
+    [SerializeField] private List<Image> listSelectedItems = new List<Image>();
     [SerializeField] private string KEY;
 
     [SerializeField] private List<GameObject> buy = new List<GameObject>();
@@ -27,11 +28,13 @@ public class Customize : MonoBehaviour
             item = (PlayerPrefs.GetInt(KEY + i.ToString(), 0) != 0);
             _list[i].unlock = item;
             btnList[i].color = !_list[i].unlock ? Color.black : Color.white;
+            //listSelectedItems[i].color = _list[i].unlock ? new Color(1f, 0f, 0f, 1f) : new Color(1f, 1f, 1f, 0.25f);
         }
     }
 
     public void BuyItems(int id)
     {
+        coin = PlayerPrefs.GetInt(Constant.COIN);
         if (coin > _list[id].price)
         {
             _list[id].unlock = true;
@@ -53,12 +56,14 @@ public class Customize : MonoBehaviour
                 {
                     if (id == i)
                     {
+                     //   listSelectedItems[i].color = new Color(1f, 0, 0, 1f);
                         Debug.Log("Oke");
                         _list[i].obj.SetActive(true);
                         PlayerPrefs.SetInt(KEY, id);
                     }
                     else
                     {
+                     //   listSelectedItems[i].color = new Color(1f, 1f, 1f, 0.25f);
                         Debug.Log("No");
                         _list[i].obj.SetActive(false);
                     }

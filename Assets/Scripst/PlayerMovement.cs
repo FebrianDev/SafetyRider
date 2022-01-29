@@ -69,9 +69,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             transform.position +=
-                (Vector3) new Vector2((x * Time.deltaTime), (y * speed * Time.deltaTime)) * percepatan;
-
-            var vec = (Vector3) new Vector2((x * Time.deltaTime), (y * speed * Time.deltaTime)) * percepatan;
+                (Vector3) new Vector2((x * Time.deltaTime * 1.8f), (y * speed * Time.deltaTime)) * percepatan;
 
             Data.speed = y * 100;
 
@@ -87,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             Data.speed = 0;
-            transform.position += (Vector3) new Vector2((x * rem * Time.deltaTime), (y * rem * Time.deltaTime));
+            transform.position += (Vector3) new Vector2((x * rem * Time.deltaTime * 1.8f), (y * rem * Time.deltaTime));
         }
 
         if (y < 0)
