@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Customize : MonoBehaviour
 {
-    [SerializeField] private List<Items> _list = new List<Items>();
+    [SerializeField] private  List<Items> _list = new List<Items>();
     [SerializeField] private List<Image> btnList = new List<Image>();
     [SerializeField] private List<Image> listSelectedItems = new List<Image>();
     [SerializeField] private string KEY;

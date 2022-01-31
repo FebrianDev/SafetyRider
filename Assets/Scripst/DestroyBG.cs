@@ -6,8 +6,8 @@ namespace Scripst
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Destroy BG");
-            Destroy(GameObject.FindWithTag("Background"));
+            //Destroy Player
+            if(other.gameObject.CompareTag("Player")) Destroy(GameObject.FindWithTag("Player"));
         }
     }
 }
