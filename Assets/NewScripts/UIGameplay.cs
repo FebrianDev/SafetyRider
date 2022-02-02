@@ -9,10 +9,13 @@ public class UIGameplay : MonoBehaviour
     [SerializeField] private GameObject panelGameOver, newHighscore, panelPause, pause;
     [SerializeField] private Text finalScore;
 
-    private int highscore;
+    [SerializeField] private GameObject[] healths;
 
+    private int highscore;
+    private bool isGameOver;
     void Start()
     {
+        isGameOver = false;
         panelGameOver.SetActive(false);
         pause.SetActive(true);
         Time.timeScale = 1f;
@@ -27,8 +30,12 @@ public class UIGameplay : MonoBehaviour
     {
         textScore.text = $"Score : {DataGame.score}";
         textHealth.text = $"Health : {DataGame.health}";
+        
+        SetHealth();
 
-        if (DataGame.health == 0)
+        Clear();
+        
+        if (DataGame.health == 0 && !isGameOver)
         {
             Time.timeScale = 0f;
             panelGameOver.SetActive(true);
@@ -37,6 +44,7 @@ public class UIGameplay : MonoBehaviour
 
             if (DataGame.score > highscore)
             {
+                Debug.Log("New Highscore");
                 highscore = DataGame.score;
                 PlayerPrefs.SetInt(Constant.HIGHSCORE, highscore);
                 newHighscore.SetActive(true);
@@ -45,6 +53,16 @@ public class UIGameplay : MonoBehaviour
             {
                 newHighscore.SetActive(false);
             }
+
+            isGameOver = true;
+        }
+    }
+
+    private void Clear()
+    {
+        if (Input.GetKey(KeyCode.C))
+        {
+            PlayerPrefs.DeleteAll();
         }
     }
 
@@ -57,7 +75,7 @@ public class UIGameplay : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-    
+
     public void Pause()
     {
         panelPause.SetActive(true);
@@ -68,5 +86,34 @@ public class UIGameplay : MonoBehaviour
     {
         panelPause.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    private void SetHealth()
+    {
+        if (DataGame.health == 3)
+        {
+             healths[0].SetActive(true);
+             healths[1].SetActive(false);
+             healths[2].SetActive(false);
+        }
+        else if (DataGame.health == 2)
+        {
+            healths[0].SetActive(false);
+            healths[1].SetActive(true);
+            healths[2].SetActive(false);
+        }
+        else if (DataGame.health == 1)
+        {
+            healths[0].SetActive(false);
+            healths[1].SetActive(false);
+            healths[2].SetActive(true);
+        }
+        else if (DataGame.health <= 0)
+        {
+            foreach (var imgHealth in healths)
+            {
+                imgHealth.SetActive(false);
+            }
+        }
     }
 }
