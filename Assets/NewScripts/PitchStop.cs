@@ -64,12 +64,12 @@ public class PitchStop : MonoBehaviour
     {
         if (keyPlayer.Contains(id))
         {
-            Selected(new Color(1f, 1f, 1f, 0.2f), id);
+            Selected(new Color(1f, 1f, 1f, 1f), id);
             keyPlayer.Remove(id);
         }
         else
         {
-            Selected(new Color(1f, 0f, 0f, 0.2f), id);
+            Selected(new Color(0f, 1f, 0f, 1f), id);
             keyPlayer.Add(id);
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameObject time, items;
+    [SerializeField] private GameObject items;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float second;
     [SerializeField] private Text textTime;
@@ -69,6 +69,5 @@ public class Player : MonoBehaviour
     private void ShowUI(bool active)
     {
         items.SetActive(active);
-        time.SetActive(active);
     }
 }

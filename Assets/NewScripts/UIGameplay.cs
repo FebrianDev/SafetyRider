@@ -2,10 +2,11 @@ using Scripst;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIGameplay : MonoBehaviour
 {
-    [SerializeField] private Text textScore, textHealth;
+    [SerializeField] TextMeshProUGUI textScore;
     [SerializeField] private GameObject panelGameOver, newHighscore, panelPause, pause;
     [SerializeField] private Text finalScore;
 
@@ -28,8 +29,7 @@ public class UIGameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textScore.text = $"Score : {DataGame.score}";
-        textHealth.text = $"Health : {DataGame.health}";
+        textScore.text = $"Score: {DataGame.score}";
         
         SetHealth();
 
@@ -40,7 +40,7 @@ public class UIGameplay : MonoBehaviour
             Time.timeScale = 0f;
             panelGameOver.SetActive(true);
             pause.SetActive(false);
-            finalScore.text = $"Score : {DataGame.score}";
+            finalScore.text = $"Score: {DataGame.score}";
 
             if (DataGame.score > highscore)
             {
