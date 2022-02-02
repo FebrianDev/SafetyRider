@@ -47,11 +47,13 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("PitchStop"))
         {
             StartCoroutine("Customize");
+            GameObject.FindWithTag("PitchStop").GetComponent<SpriteRenderer>().enabled = false;
         }
 
         if (other.gameObject.CompareTag("Destroy"))
         {
             GenerateCustomer.generate = false;
+            GameObject.FindWithTag("PitchStop").GetComponent<SpriteRenderer>().enabled = true;
             Destroy(gameObject);
         }
     }
@@ -64,6 +66,8 @@ public class Player : MonoBehaviour
         DataGame.health -= 1;
         ShowUI(false);
         stop = false;
+        yield return new WaitForSeconds(1);
+        GameObject.FindWithTag("PitchStop").GetComponent<SpriteRenderer>().enabled = true;
     }
 
     private void ShowUI(bool active)

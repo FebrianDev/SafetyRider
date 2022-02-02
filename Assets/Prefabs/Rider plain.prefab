@@ -5773,6 +5773,7 @@ MonoBehaviour:
   - {fileID: 727868447}
   - {fileID: 1398079907}
   - {fileID: 357422399}
+  stopSign: {fileID: 0}
   listSelected:
   - {fileID: 4719942343673377045}
   - {fileID: 4719942344088931257}

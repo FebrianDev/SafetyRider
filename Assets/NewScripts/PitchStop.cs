@@ -50,6 +50,7 @@ public class PitchStop : MonoBehaviour
     {
         if (Player.stop)
         {
+            /*
             for (var j = 0; j < addItems.Length; j++)
             {
                 if (j == keys.Count - 1)
@@ -57,6 +58,7 @@ public class PitchStop : MonoBehaviour
                     addItems[j].SetActive(true);
                 }
             }
+            */
         }
     }
 
