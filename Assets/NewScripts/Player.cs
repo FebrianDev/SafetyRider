@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Scripst;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,22 +9,28 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float second;
     [SerializeField] private Text textTime;
-    private bool stop;
-    
+    [SerializeField] private Slider sliderTime;
+
+    public static bool stop;
+
     private float timer;
+
     void Start()
     {
         timer = second;
         stop = false;
         ShowUI(false);
+        sliderTime.value = 100;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (stop)
         {
-            textTime.text = Mathf.FloorToInt(timer % 60).ToString();
+            var time = Mathf.FloorToInt(timer % 60);
+            sliderTime.value = time  * 10;
+            textTime.text = time.ToString();
             timer -= Time.deltaTime;
 
             if (timer <= 0)
@@ -32,7 +39,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(!stop) transform.position += Vector3.up * speed * Time.deltaTime;
+        if (!stop) transform.position += Vector3.up * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -44,6 +51,7 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.CompareTag("Destroy"))
         {
+            GenerateCustomer.generate = false;
             Destroy(gameObject);
         }
     }
@@ -52,7 +60,8 @@ public class Player : MonoBehaviour
     {
         stop = true;
         ShowUI(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(second);
+        DataGame.health -= 1;
         ShowUI(false);
         stop = false;
     }
