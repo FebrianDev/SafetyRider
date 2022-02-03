@@ -5713,6 +5713,7 @@ GameObject:
   - component: {fileID: 4719942343202848015}
   - component: {fileID: 4719942343202848008}
   - component: {fileID: 4719942343202848009}
+  - component: {fileID: 398648695}
   m_Layer: 0
   m_Name: Rider plain
   m_TagString: Untagged
@@ -5773,7 +5774,6 @@ MonoBehaviour:
   - {fileID: 727868447}
   - {fileID: 1398079907}
   - {fileID: 357422399}
-  stopSign: {fileID: 0}
   listSelected:
   - {fileID: 4719942343673377045}
   - {fileID: 4719942344088931257}
@@ -5806,6 +5806,7 @@ MonoBehaviour:
   second: 10
   textTime: {fileID: 4719942342594948858}
   sliderTime: {fileID: 4763539600950428925}
+  panelItems: {fileID: 4719942343891690095}
 --- !u!61 &4719942343202848008
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5853,6 +5854,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &398648695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4719942343202848013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420af787c9984fe4c9cfb182e8738c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sepeda: {fileID: 4719942342310566103}
+  kaos: {fileID: 4719942343864620920}
+  rambut:
+  - {fileID: 4719942343752965208}
+  - {fileID: 4719942343381858870}
+  - {fileID: 4719942343432018707}
+  - {fileID: 4719942343577196886}
 --- !u!1 &4719942343229969497
 GameObject:
   m_ObjectHideFlags: 0

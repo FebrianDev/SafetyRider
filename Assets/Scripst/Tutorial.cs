@@ -26,6 +26,6 @@ public class Tutorial : MonoBehaviour
         anim[2].enabled = true;
         yield return new WaitForSeconds(4);
         PlayerPrefs.SetString(Constant.TUTORIAL, Constant.TUTORIAL);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Gameplay");
     }
 }

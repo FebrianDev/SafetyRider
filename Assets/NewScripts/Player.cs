@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float second;
     [SerializeField] private Text textTime;
     [SerializeField] private Slider sliderTime;
-
+    [SerializeField] private GameObject panelItems;
     public static bool stop;
 
     private float timer;
@@ -25,7 +25,9 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     private void Update()
-    {
+    { 
+        panelItems.SetActive(!DataGame.isPause);
+        
         if (stop)
         {
             var time = Mathf.FloorToInt(timer % 60);

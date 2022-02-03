@@ -22,6 +22,7 @@ public class UIGameplay : MonoBehaviour
         Time.timeScale = 1f;
         DataGame.health = 3;
         DataGame.score = 0;
+        DataGame.isPause = false;
 
         highscore = PlayerPrefs.GetInt(Constant.HIGHSCORE);
     }
@@ -78,12 +79,14 @@ public class UIGameplay : MonoBehaviour
 
     public void Pause()
     {
+        DataGame.isPause = true;
         panelPause.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void Continue()
     {
+        DataGame.isPause = false;
         panelPause.SetActive(false);
         Time.timeScale = 1f;
     }

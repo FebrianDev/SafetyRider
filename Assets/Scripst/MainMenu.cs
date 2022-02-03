@@ -47,15 +47,10 @@ public class MainMenu : MonoBehaviour
         back.SetActive(false);
         if (PlayerPrefs.GetString(Constant.TUTORIAL, "") != "")
         {
-            
-            DontDestroyOnLoad(player);
-            DontDestroyOnLoad(camera);
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Gameplay");
         }
         else
         {
-            DontDestroyOnLoad(player);
-            DontDestroyOnLoad(camera);
             tutorial.SetActive(true);
             ManagePanel(false,false,false,false);
         }
