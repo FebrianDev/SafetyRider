@@ -50,15 +50,15 @@ public class PitchStop : MonoBehaviour
     {
         if (Player.stop)
         {
-            /*
-            for (var j = 0; j < addItems.Length; j++)
-            {
-                if (j == keys.Count - 1)
-                {
-                    addItems[j].SetActive(true);
-                }
-            }
-            */
+            
+            // for (var j = 0; j < addItems.Length; j++)
+            // {
+            //     if (j == keys.Count - 1)
+            //     {
+            //         addItems[j].SetActive(true);
+            //     }
+            // }
+            
         }
     }
 
@@ -67,11 +67,13 @@ public class PitchStop : MonoBehaviour
         if (keyPlayer.Contains(id))
         {
             Selected(new Color(1f, 1f, 1f, 1f), id);
+            listItems[id].SetActive(false);
             keyPlayer.Remove(id);
         }
         else
         {
             Selected(new Color(0f, 1f, 0f, 1f), id);
+            listItems[id].SetActive(true);
             keyPlayer.Add(id);
         }
     }
@@ -82,26 +84,21 @@ public class PitchStop : MonoBehaviour
         var newKeys = keys.ToList();
         newKeys.Sort();
 
-        for (int i = 0; i < listItems.Length; i++)
-        {
-            for (var j = 0; j < keyPlayer.Count; j++)
-                if (keyPlayer[j] == i)
-                    listItems[i].SetActive(true);
-        }
+        // for (int i = 0; i < listItems.Length; i++)
+        // {
+        //     for (var j = 0; j < keyPlayer.Count; j++)
+        //         if (keyPlayer[j] == i)
+        //             listItems[i].SetActive(true);
+        // }
 
         Player.stop = false;
-
-        Debug.Log("P " + keyPlayer.Count);
-        Debug.Log("K " + keys.Count);
 
         var check = false;
         if (keyPlayer.Count == keys.Count)
         {
-            Debug.Log("OKE");
             for (var i = 0; i < keys.Count; i++)
             {
                 check = keyPlayer[i] == newKeys[i];
-                Debug.Log(keyPlayer[i] + " " + newKeys[i]);
             }
         }
 

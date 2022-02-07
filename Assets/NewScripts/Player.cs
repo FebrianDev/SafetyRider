@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         if (stop)
         {
             var time = Mathf.FloorToInt(timer % 60);
-            sliderTime.value = time  * 10;
+            sliderTime.value = time  * 5;
             textTime.text = time.ToString();
             timer -= Time.deltaTime;
 
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     {
         stop = true;
         ShowUI(true);
-        yield return new WaitForSeconds(second);
+        yield return new WaitForSeconds(second - 1);
         DataGame.health -= 1;
         ShowUI(false);
         stop = false;
