@@ -55,6 +55,7 @@ public class UIGameplay : MonoBehaviour
                 newHighscore.SetActive(false);
             }
 
+            DataGame.isPause = true;
             isGameOver = true;
         }
     }

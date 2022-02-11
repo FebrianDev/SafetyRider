@@ -19,7 +19,7 @@ public class Navigation : MonoBehaviour
 
     private void Update()
     {
-        textNav.text = $"{active + 1}/3";
+        textNav.text = $"{active + 1}/6";
     }
 
     public void Prev()
