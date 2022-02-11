@@ -8,7 +8,7 @@ public class PitchStop : MonoBehaviour
 {
     [SerializeField] private GameObject[] listItems, addItems;
     [SerializeField] private List<Image> listSelected = new List<Image>();
-    
+
     private int less;
     private HashSet<int> keys = new HashSet<int>();
     private List<int> keyPlayer = new List<int>();
@@ -24,12 +24,16 @@ public class PitchStop : MonoBehaviour
 
         var i = 0;
 
+        //Random key 
         for (var j = 0; j < less; j++)
         {
             var key = Random.Range(0, listItems.Length);
             listItems[key].SetActive(false);
             keys.Add(key);
         }
+
+        Debug.Log("Key Player " + keyPlayer.Count);
+        Debug.Log("Keys " + keys.Count);
 
         for (var j = 0; j <= addItems.Length - 1; j++)
         {
@@ -48,18 +52,16 @@ public class PitchStop : MonoBehaviour
 
     private void Update()
     {
-        if (Player.stop)
-        {
-            
-            // for (var j = 0; j < addItems.Length; j++)
-            // {
-            //     if (j == keys.Count - 1)
-            //     {
-            //         addItems[j].SetActive(true);
-            //     }
-            // }
-            
-        }
+        // if (Player.stop)
+        // {
+        //     for (var j = 0; j < addItems.Length; j++)
+        //     {
+        //         if (j == keys.Count - 1)
+        //         {
+        //             addItems[j].SetActive(true);
+        //         }
+        //     }
+        // }
     }
 
     public void SetItem(int id)
@@ -84,25 +86,38 @@ public class PitchStop : MonoBehaviour
         var newKeys = keys.ToList();
         newKeys.Sort();
 
-        // for (int i = 0; i < listItems.Length; i++)
-        // {
-        //     for (var j = 0; j < keyPlayer.Count; j++)
-        //         if (keyPlayer[j] == i)
-        //             listItems[i].SetActive(true);
-        // }
+        Debug.Log("Key Player Confitm " + keyPlayer.Count);
+        Debug.Log("New Keys Confitm " + newKeys.Count);
 
         Player.stop = false;
 
+        var count = 0;
         var check = false;
-        if (keyPlayer.Count == keys.Count)
+
+        foreach (var list in listItems)
         {
-            for (var i = 0; i < keys.Count; i++)
+            if (list.activeSelf)
             {
-                check = keyPlayer[i] == newKeys[i];
+                check = true;
+            }
+            else
+            {
+                check = false;
+                break;
+            }
+        }
+       
+        for (var i = 0; i < keyPlayer.Count; i++)
+        {
+            if (newKeys.Contains(keyPlayer[i]))
+            {
+                count++;
             }
         }
 
-        if (check)
+        Debug.Log("Count "+count +" NewKeysCount "+newKeys.Count);
+
+        if (count == newKeys.Count && check)
         {
             DataGame.score += 1;
         }
@@ -110,7 +125,7 @@ public class PitchStop : MonoBehaviour
         {
             DataGame.health -= 1;
         }
-        
+
         canvas.SetActive(false);
     }
 
