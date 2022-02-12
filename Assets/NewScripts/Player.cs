@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         stop = true;
         ShowUI(true);
         yield return new WaitForSeconds(second - 1);
-        DataGame.health -= 1;
+        if(stop) DataGame.health -= 1;
         ShowUI(false);
         stop = false;
         yield return new WaitForSeconds(1);

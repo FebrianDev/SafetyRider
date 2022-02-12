@@ -8,7 +8,7 @@ public class PitchStop : MonoBehaviour
 {
     [SerializeField] private GameObject[] listItems, addItems;
     [SerializeField] private List<Image> listSelected = new List<Image>();
-    
+
     private int less;
     private HashSet<int> keys = new HashSet<int>();
     private List<int> keyPlayer = new List<int>();
@@ -48,34 +48,72 @@ public class PitchStop : MonoBehaviour
 
     private void Update()
     {
-        if (Player.stop)
-        {
-            
-            // for (var j = 0; j < addItems.Length; j++)
-            // {
-            //     if (j == keys.Count - 1)
-            //     {
-            //         addItems[j].SetActive(true);
-            //     }
-            // }
-            
-        }
+        // if (Player.stop)
+        // {
+        //     for (var j = 0; j < addItems.Length; j++)
+        //     {
+        //         if (j == keys.Count - 1)
+        //         {
+        //             addItems[j].SetActive(true);
+        //         }
+        //     }
+        // }
     }
 
     public void SetItem(int id)
     {
+        if (keys.Contains(id))
+        {
+            listItems[id].SetActive(true);
+        }
+        
         if (keyPlayer.Contains(id))
         {
             Selected(new Color(1f, 1f, 1f, 1f), id);
-            listItems[id].SetActive(false);
             keyPlayer.Remove(id);
+            
+            if(keys.Contains(id)) listItems[id].SetActive(false);
         }
         else
         {
             Selected(new Color(0f, 1f, 0f, 1f), id);
-            listItems[id].SetActive(true);
             keyPlayer.Add(id);
         }
+
+        foreach (var key in keyPlayer)
+        {
+            Debug.Log("KEY " + key);
+            listItems[key].SetActive(true);
+        }
+
+        // if (keyPlayer.Contains(id))
+        // {
+        //     if (keys.Contains(id))
+        //     {
+        //         Selected(new Color(1f, 1f, 1f, 1f), id);
+        //         listItems[id].SetActive(true);
+        //     }
+        //     else
+        //     {
+        //         Selected(new Color(1f, 1f, 1f, 1f), id);
+        //         listItems[id].SetActive(false);
+        //         keyPlayer.Remove(id);
+        //     }
+        // }
+        // else
+        // {
+        //     if (keys.Contains(id))
+        //     {
+        //         Selected(new Color(0f, 1f, 1f, 1f), id);
+        //         listItems[id].SetActive(true);
+        //     }
+        //     else
+        //     {
+        //         Selected(new Color(0f, 1f, 0f, 1f), id);
+        //         listItems[id].SetActive(true);
+        //         keyPlayer.Add(id);
+        //     }
+        // }
     }
 
     public void Confirm()
@@ -110,7 +148,7 @@ public class PitchStop : MonoBehaviour
         {
             DataGame.health -= 1;
         }
-        
+
         canvas.SetActive(false);
     }
 
