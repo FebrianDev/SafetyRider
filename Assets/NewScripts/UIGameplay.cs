@@ -23,6 +23,7 @@ public class UIGameplay : MonoBehaviour
         DataGame.health = 3;
         DataGame.score = 0;
         DataGame.isPause = false;
+        DataGame.isGameOver = false;
 
         highscore = PlayerPrefs.GetInt(Constant.HIGHSCORE);
     }
@@ -55,6 +56,7 @@ public class UIGameplay : MonoBehaviour
                 newHighscore.SetActive(false);
             }
 
+            DataGame.isPause = true;
             isGameOver = true;
         }
     }

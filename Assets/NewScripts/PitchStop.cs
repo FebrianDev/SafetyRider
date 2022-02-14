@@ -154,6 +154,7 @@ public class PitchStop : MonoBehaviour
 
     private void Selected(Color color, int id)
     {
+        
         listSelected[id].color = color;
     }
 }

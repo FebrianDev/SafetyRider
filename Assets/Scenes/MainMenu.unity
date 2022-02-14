@@ -4392,6 +4392,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textNav: {fileID: 1597640894}
   listAlmanac:
+  - {fileID: 1778519662}
+  - {fileID: 1140044539}
+  - {fileID: 2108579208}
   - {fileID: 269519668}
   - {fileID: 1968845270}
   - {fileID: 1930480775}
@@ -7335,7 +7338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec9261045b727c2418d5d44c2919404a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10c83423ce029e241bbfdc80895e32e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9045,7 +9048,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1140044540}
-  - component: {fileID: 1140044541}
   m_Layer: 5
   m_Name: Guide 2
   m_TagString: Untagged
@@ -9073,36 +9075,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1140044541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140044539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d25d156c9849ec971431453138f0b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _list:
-  - id: 0
-    obj: {fileID: 1478024222}
-  - id: 1
-    obj: {fileID: 0}
-  - id: 2
-    obj: {fileID: 0}
-  - id: 3
-    obj: {fileID: 0}
-  - id: 4
-    obj: {fileID: 0}
-  - id: 5
-    obj: {fileID: 0}
-  - id: 6
-    obj: {fileID: 0}
-  - id: 7
-    obj: {fileID: 0}
-  KEY: PANEL2
 --- !u!1 &1144166102
 GameObject:
   m_ObjectHideFlags: 0
@@ -14456,7 +14428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1721599705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15294,7 +15266,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1778519663}
-  - component: {fileID: 1778519664}
   m_Layer: 5
   m_Name: Guide 1
   m_TagString: Untagged
@@ -15322,36 +15293,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1778519664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778519662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d25d156c9849ec971431453138f0b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _list:
-  - id: 0
-    obj: {fileID: 1962448277}
-  - id: 1
-    obj: {fileID: 0}
-  - id: 2
-    obj: {fileID: 0}
-  - id: 3
-    obj: {fileID: 0}
-  - id: 4
-    obj: {fileID: 0}
-  - id: 5
-    obj: {fileID: 0}
-  - id: 6
-    obj: {fileID: 0}
-  - id: 7
-    obj: {fileID: 0}
-  KEY: PANEL2
 --- !u!1 &1780127460
 GameObject:
   m_ObjectHideFlags: 0
@@ -18416,7 +18357,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2108579209}
-  - component: {fileID: 2108579210}
   m_Layer: 5
   m_Name: Guide 3
   m_TagString: Untagged
@@ -18444,36 +18384,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2108579210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108579208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d25d156c9849ec971431453138f0b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _list:
-  - id: 0
-    obj: {fileID: 1837951526}
-  - id: 1
-    obj: {fileID: 0}
-  - id: 2
-    obj: {fileID: 0}
-  - id: 3
-    obj: {fileID: 0}
-  - id: 4
-    obj: {fileID: 0}
-  - id: 5
-    obj: {fileID: 0}
-  - id: 6
-    obj: {fileID: 0}
-  - id: 7
-    obj: {fileID: 0}
-  KEY: PANEL2
 --- !u!1 &2128086574
 GameObject:
   m_ObjectHideFlags: 0
