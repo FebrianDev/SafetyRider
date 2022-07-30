@@ -11,12 +11,14 @@ public class Player : MonoBehaviour
     [SerializeField] private Text textTime;
     [SerializeField] private Slider sliderTime;
     [SerializeField] private GameObject panelItems;
+    [SerializeField] private Text textPerintah;
     public static bool stop;
 
     private float timer;
 
     void Start()
     {
+        textPerintah.enabled = false;
         timer = second;
         stop = false;
         ShowUI(false);
@@ -48,12 +50,14 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PitchStop"))
         {
+            textPerintah.enabled = true;
             StartCoroutine("Customize");
             GameObject.FindWithTag("PitchStop").GetComponent<SpriteRenderer>().enabled = false;
         }
 
         if (other.gameObject.CompareTag("Destroy"))
         {
+            textPerintah.enabled = false;
             GenerateCustomer.generate = false;
             GameObject.FindWithTag("PitchStop").GetComponent<SpriteRenderer>().enabled = true;
             Destroy(gameObject);

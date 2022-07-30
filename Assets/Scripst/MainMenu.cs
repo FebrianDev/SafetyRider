@@ -39,6 +39,7 @@ public class MainMenu : MonoBehaviour
 
     public void BackMainMenu()
     {
+        Navigation.active = 0;
         ManagePanel(false, false, true,false);
     }
     
